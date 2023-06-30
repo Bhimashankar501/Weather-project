@@ -1,0 +1,65 @@
+
+
+
+
+<div class="container">
+  
+  <div class="upper-data">
+    
+    <img src="../assets/night.jpg" *ngIf="temperature > 15">
+    <img src="../assets/day.jpg" *ngIf="temperature < 15">
+
+    <div class="weather-data">
+      <div class="search">
+        <form #form="ngForm" (submit)="onSubmit()">
+          <input type="text" placeholder="Search City" name="city" [(ngModel)]="cityname">
+        </form>
+      </div>
+      <div class="location">{{city}}</div>
+      <div class="temperature">{{temperature | number : '1.0-0'}}°</div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">More Inforamation</div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/pngwing.com (1).png" >
+          <span>min</span>
+        </div>
+        <div class="info-block-value">{{min_temp| number : '1.0-0'}}°C</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/thermometer-icon-png-13.jpg" >
+          <span>max</span>
+        </div>
+        <div class="info-block-value">{{max_temp| number : '1.0-0'}}°C</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/humunity.com.png" >
+          <span>humunity</span>
+        </div>
+        <div class="info-block-value">{{humidity| number : '1.0-0'}}°C</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/wind.png" >
+          <span>wind</span>
+        </div>
+        <div class="info-block-value">{{speed}}kmph</div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<router-outlet></router-outlet>
